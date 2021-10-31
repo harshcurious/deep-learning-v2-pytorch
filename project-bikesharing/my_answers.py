@@ -103,7 +103,7 @@ class NeuralNetwork(object):
         hidden_error = np.dot(output_error_term, self.weights_hidden_to_output.T)
         
         hidden_error_term = hidden_error * hidden_outputs * (1 - hidden_outputs)
-        #print(hidden_error_term.shape)
+#         print(hidden_error_term.shape)
         # TODO: Add Weight step (input to hidden) and Weight step (hidden to output).
         # Weight step (input to hidden)
         delta_weights_i_h += np.dot(X[:,None], hidden_error_term)
@@ -142,7 +142,7 @@ class NeuralNetwork(object):
         
         # TODO: Output layer - Replace these values with the appropriate calculations.
         final_inputs = np.dot(hidden_outputs, self.weights_hidden_to_output) # signals into final output layer
-        final_outputs = self.activation_function(final_inputs) # signals from final output layer 
+        final_outputs = (final_inputs) # signals from final output layer 
         
         return final_outputs
 
@@ -150,7 +150,7 @@ class NeuralNetwork(object):
 #########################################################
 # Set your hyperparameters here
 ##########################################################
-iterations = 1000
-learning_rate = 0.01
-hidden_nodes = 2000
+iterations = 10000
+learning_rate = 0.05
+hidden_nodes = 100
 output_nodes = 1
